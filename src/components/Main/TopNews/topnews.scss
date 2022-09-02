@@ -137,3 +137,21 @@
     }
   }
 }
+
+
+@media screen and (max-width: 576px) {
+  .topnews {
+
+    &__item {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &__imgbox {
+      width: 104px;
+      height: 102px;
+    }
+  }
+
+
+}

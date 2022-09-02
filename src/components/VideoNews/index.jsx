@@ -40,8 +40,6 @@ export default function VideoNews() {
     newsItem()
   }, [])
 
-  console.log(one)
-
   return (
     <section className="videonews">
       <h2 className="videonews__title">{t('vdyangi')}</h2>

@@ -28,7 +28,6 @@ export default function RukunItems() {
     newsItem()
   },[id])
 
-
   if(! loading) {
     return <h1>Loading</h1>
   }

@@ -10,6 +10,9 @@ import RatingPost from "./RatingPost";
 import POST from "../../../API/POST";
 import { useTranslation } from "react-i18next";
 
+import loadings from '../../../assets/images/loading.svg'
+
+
 export default function ReadN() {
 
   let {t, i18n} = useTranslation()
@@ -18,6 +21,7 @@ export default function ReadN() {
 
   const [news, setNews] = useState([])
   const [loading, setLoading] = useState(false)
+  const [active, setActive] = useState(false)
 
   //comment uchun
   const addComment = async (e) => {
@@ -35,6 +39,7 @@ export default function ReadN() {
       setLoading(false)
       const response = await GET.new(id);
       setNews(response.data)
+      document.title = response.data.title_uz
       setLoading(true)
 
     } catch (err) {
@@ -45,11 +50,12 @@ export default function ReadN() {
 
   useEffect(() => {
     newItem()
-  }, [])
+
+  }, [id])
 
 
   if(! loading) {
-    return <h1>Loader</h1>
+    return <section className="readnews"><img className="loading" src={loadings} alt="laoding" width="150" height={150}/></section>
   }
 
   return (
@@ -61,6 +67,10 @@ export default function ReadN() {
       </div>
       <p className="readnews__news">
       {i18n.language === "uz" ? parse(news.description_uz) : i18n.language === "ru" ? parse(news.description_ru) : i18n.language === "kiril" ? parse(news.description_oz) : parse(news.description_uz)}
+      {
+        news.video_url === null ? "" : <iframe className="readnews__imgbox" src={`https://www.youtube.com/embed/${news.video_url}`} allow="autoplay">
+        </iframe>
+      }
       </p>
 
       <RatingPost news={news} />
@@ -79,13 +89,15 @@ export default function ReadN() {
         </span>
       </form>
 
-      <p className="readnews__comments"><span>{t ("barcha-izohlar")}</span> ({news.comment_count})</p>
+      <p className="readnews__comments" id="accordionPanelsStayOpenExample"><span>{t ("barcha-izohlar")}</span> ({news.comment_count}) <button
+      onClick={() => setActive(!active)}
+      className="readnews__accbtn" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"><i className={active ? "bx bx-chevron-down" : "bx bx-chevron-up"}></i></button></p>
 
-      <ul className="readnews__list">
+      <ul className="readnews__list accordion-collapse collapse show" id="panelsStayOpen-collapseThree" aria-labelledby="panelsStayOpen-headingThree">
         {
           news.comments.length > 0 ? news.comments.map((item, key) => {
             return (
-              <CommentPost key={key+14} item={item} />
+              <CommentPost key={key+14} item={item}/>
             )
           }) : ""
         }

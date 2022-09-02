@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Hudud from "./Hudud";
 import Rukn from "./Rukn";
-import API from "../../API/API";
+import GET from "../../API/GET";
 
 //translation
 import "../../i18next"
@@ -18,7 +18,7 @@ export default function Nav() {
   //APIdan malummotlarni olish
   const useCategory = async () => {
     try {
-      const category = await API.category()
+      const category = await GET.category()
       setData(category.data)
     } catch (err) {
       console.log(err)

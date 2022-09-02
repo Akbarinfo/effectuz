@@ -1,0 +1,244 @@
+.mheader {
+  display: none;
+}
+
+@media screen and (max-width: 576px) {
+
+  .mheader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+    padding: 11px 20px;
+    z-index: 10;
+
+    &__sbtn,
+    &__send {
+      width: 24px;
+      height: 24px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      color: #072d4b;
+      padding: 0;
+    }
+
+    &__logobox {
+      width: 122px;
+      height: 23px;
+      overflow: hidden;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    &__menubox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      width: 23px;
+      height: 23px;
+    }
+
+    &__menubox-one,
+    &__menubox-two,
+    &__menubox-three {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: #072d4b;
+      margin-bottom: 5px;
+    }
+
+    &__menubox-two {
+      width: 70%;
+    }
+
+    &__menubox-three {
+      margin-bottom: 0;
+    }
+
+
+    //search modal
+
+    &__border {
+      border-right: none !important;
+    }
+
+    &__xbtn {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      background: none;
+      border: none;
+      color: #072d4b;
+
+      & i {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        font-size: 32px;
+        transition: all 0.4s ease;
+      }
+
+      &:hover i {
+        color: #0768b5;
+      }
+    }
+
+    &__searchbox {
+      width: 100%;
+      padding: 10px 15px;
+
+    }
+
+    &__form {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #e9ebf0;
+      border-radius: 8px;
+      padding: 7px 15px;
+    }
+
+    &__input {
+      background: none;
+      border: none;
+      font-family: 'Rubik';
+      font-size: 16px;
+      line-height: 24px;
+      color: #67727e;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &__result {
+      font-family: "Bluu Next";
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      color: #072d4b;
+      margin-bottom: 10px;
+    }
+
+    &__slist {
+      width: 100%;
+      padding: 20px 15px;
+      padding-top: 10px;
+      overflow-y: auto;
+    }
+
+    &__sitem {
+      display: flex;
+      background: #fff;
+      box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      padding: 12px 2px 12px 14px;
+      margin-bottom: 15px;
+      transition: all 0.4s ease;
+
+      &:hover {
+        box-shadow: 0px 2px 20px 5px rgba(7, 45, 75, 0.2);
+      }
+
+      &:hover .mheader__slist-title {
+        color: #0768b5;
+      }
+    }
+
+    &__slist-box {
+      width: 245px;
+      padding-right: 5px;
+      margin-left: 10px;
+    }
+
+    &__slist-time {
+      display: flex;
+      align-items: center;
+      font-size: 10px;
+      line-height: 12px;
+      color: #072d4b;
+      opacity: 0.6;
+      margin-bottom: 5px;
+
+      i {
+        transform: translateY(-1px);
+        margin-right: 10px;
+      }
+    }
+
+    &__slist-line {
+      display: block;
+      width: 1px;
+      height: 9px;
+      background-color: #072d4b;
+      margin: 0 10px;
+      opacity: 0.6;
+      transform: translateY(-1px);
+    }
+
+    &__slist-title {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #072d4b;
+      transition: all 0.4s ease;
+    }
+
+    &__slist-imgbox {
+      width: 71px;
+      height: 70px;
+      overflow: hidden;
+      border-radius: 4px;
+    }
+
+    &__slist-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+
+    &__ {
+
+    }
+  }
+}

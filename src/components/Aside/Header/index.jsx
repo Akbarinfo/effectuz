@@ -36,10 +36,10 @@ export default function AsideHeader() {
     <>
       <ul className="aside__blist">
         <li className="aside__bitem"><a href="#" target="_blank"><img src={facebooks} alt="facebook" width="40" height="40" /></a></li>
-        <li className="aside__bitem"><a href={`https://twitter.com/${ typeof(data) !== "undifined" ? data.twitter : "/"}`} target="_blank"><img src={twitters} alt="twitter" width="40" height="40" /></a></li>
-        <li className="aside__bitem"><a href={`https://instagram.com/${ typeof(data) !== "undifined" ? data.instagram : "/"}`} target="_blank"><img src={instagrams} alt="intagram" width="40" height="40" /></a></li>
+        <li className="aside__bitem"><a href={`https://twitter.com/${ typeof(data) !== "undefined" ? data.twitter : "/"}`} target="_blank"><img src={twitters} alt="twitter" width="40" height="40" /></a></li>
+        <li className="aside__bitem"><a href={`https://instagram.com/${ typeof(data) !== "undefined" ? data.instagram : "/"}`} target="_blank"><img src={instagrams} alt="intagram" width="40" height="40" /></a></li>
         <li className="aside__bitem"><a href="http://" target="_blank"><img src={youtubes} alt="youtube" width="40" height="40" /></a></li>
-        <li className="aside__bitem"><a href={`https://t.me/${ typeof(data) !== "undifined" ? data.telegram : "/"}`} target="_blank"><img src={telegrams} alt="telegram" width="40" height="40" /></a></li>
+        <li className="aside__bitem"><a href={`https://t.me/${ typeof(data) !== "undefined" ? data.telegram : "/"}`} target="_blank"><img src={telegrams} alt="telegram" width="40" height="40" /></a></li>
 
       </ul>
     </>

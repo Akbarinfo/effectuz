@@ -30,8 +30,6 @@ export default function NewsL() {
     newsItem()
   },[])
 
-  console.log(data)
-
   return (
       <section className="newslenta">
         <h2 className="newslenta__subtitle">{t('Yangi-lentasi')}</h2>
@@ -46,7 +44,7 @@ export default function NewsL() {
             {
               data.map((item, key) => {
                 return (
-                  <li className="newslenta__item">
+                  <li key={key+366} className="newslenta__item">
                     <span className="newslenta__time">19:35</span>
                     <Link to={`/post/${item.id}`}>
                       <div className="newslenta__box">
@@ -56,7 +54,7 @@ export default function NewsL() {
                         <div className="newslenta__titlebox">
                           <h3 className="newslenta__title">{i18n.language === "uz" ? item.title_uz : i18n.language === "ru" ? item.title_ru : i18n.language === "kiril" ? item.title_oz : item.title_uz}</h3>
                           <div className="newslenta__catebox">
-                            <p>#Texnolgiya</p>
+                            <p>#{item.category_id}</p>
                             <p ><i className='newslenta__comment bx bx-message-rounded bx-flip-horizontal'></i>{item.comment_count} {t ("izoh")}</p>
                           </div>
                         </div>
@@ -68,7 +66,7 @@ export default function NewsL() {
             }
           </ul>
           <div className="text-center">
-            <button className="newslenta__btn">Yana yuklash</button>
+            <button className="newslenta__btn">{t ("yana-yuklash")}</button>
           </div>
         </div>
       </section>

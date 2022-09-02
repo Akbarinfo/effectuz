@@ -35,10 +35,6 @@
     justify-content: start;
   }
 
-  &__list {
-
-  }
-
   &__item {
     font-size: 14px;
     line-height: 16px;
@@ -68,7 +64,6 @@
   &__box {
     width: 320px;
     padding-left: 35px;
-    border-bottom: 1px solid red;
   }
 
   &__us {
@@ -171,5 +166,66 @@
     width: 86px;
     height: 30px;
     object-fit: cover;
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+
+    &__nav {
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    &__bigbox {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__nav-list {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: center;
+    }
+
+    &__nav-item:nth-child(2n + 1) {
+      text-align: end;
+      border-right: 1px solid #666;
+      padding-right: 10px;
+      padding-bottom: 15px;
+    }
+
+    &__nav-item:nth-child(2n + 2) {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    &__copyright {
+      width: 375px;
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__ebox {
+      display: none;
+    }
+
+    &__plist {
+      padding-top: 0;
+      padding-bottom: 15px;
+    }
   }
 }

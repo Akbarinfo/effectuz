@@ -1,0 +1,63 @@
+.mvideon {
+  padding: 0 10px;
+
+  &__list {
+    padding: 15px 10px;
+    background-color: #fff;
+  }
+
+  &__item {
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    margin-bottom: 15px;
+
+
+    &:hover {
+      box-shadow: 0px 2px 20px 5px rgba(7, 45, 75, 0.2);
+    }
+
+    &:hover .mvideon__title {
+      color: #0768b5;
+    }
+  }
+
+  &__imgbox {
+    position: relative;
+    width: 100%;
+    height: 223px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(1px);
+    border-radius: 50%;
+  }
+
+  &__title {
+    font-size: 14px;
+    line-height: 14px;
+    color: #072d4b;
+    transition: all 0.4s ease;
+    padding: 0 10px 10px 10px;
+  }
+
+}

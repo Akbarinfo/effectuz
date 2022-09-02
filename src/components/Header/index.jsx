@@ -18,31 +18,6 @@ export default function Header() {
     i18next.changeLanguage(lng)
   }
 
-  const [curr, setCurr] = useState([]);
-
-
-  const currncy = async () => {
-    const res =await fetch("https://cbu.uz/uz/arkhiv-kursov-valyut/json",{
-      method:"GET",
-      headers:{
-        "Content-Type": "application/json"
-      }
-    })
-    const result=await res.json()
-    setCurr(result)
-  }
-
-
-  useEffect(() => {
-    currncy()
-  }, [])
-
-  console.log(curr)
-console.log("error")
-
-
-
-  //Translation
   const { t, i18n } = useTranslation()
 
   return (
@@ -54,9 +29,9 @@ console.log("error")
       </div>
 
       <div className="header__box">
-        <form className="header__form" action="">
+        <form className="header__form" action="/search/5">
           <input className="header__input" type="text" placeholder={t('izlash')} />
-          <i className='bx bx-search header__form-icon'></i>
+          <i typeof="sumbmit" className='bx bx-search header__form-icon'></i>
         </form>
         <ul className="header__list">
           <li className="header__item">USD=10871.93</li>

@@ -38,7 +38,7 @@ export default function Rukn() {
           }>
               <li className="sidebar__item">
                 <span className="sidebar__line"></span>
-                {item.name_uz}
+                {i18n.language === "uz" ? item.name_uz : i18n.language === "ru" ? item.name_ru : i18n.language === "kiril" ? item.name_oz : item.name_uz}
               </li>
             </NavLink>
           )

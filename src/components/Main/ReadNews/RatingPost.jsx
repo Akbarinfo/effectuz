@@ -8,6 +8,9 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import '../../../i18next'
 
+// icons
+import share_icon from '../../../assets/icons/share-icon.svg'
+
 export default function RatingPost({news}) {
 
   let {t, i18n} = useTranslation()
@@ -68,7 +71,7 @@ export default function RatingPost({news}) {
                 progress: undefined,
               })
             )
-          }} className="readnews__share-btn">{t ("nusxa")}</button>
+          }} className="readnews__share-btn"> <span className="readnews__share-copy">{t ("nusxa")}</span> <span className="readnews__share-icon"><img src={share_icon} alt="share_icon" /></span> </button>
           <ToastContainer />
         </div>
       </div>

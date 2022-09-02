@@ -16,7 +16,8 @@ import { useTranslation } from "react-i18next";
 
 export default function Footer() {
 
-  const {t, i18n} = useTranslation()
+  let a = "+998937132313"
+  const { t, i18n } = useTranslation()
 
   return (
     <footer className="footer">
@@ -68,26 +69,26 @@ export default function Footer() {
               <ul className="footer__list">
                 <li className="footer__item">Hududlar</li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('qoraqalpoq')}</Link>
+                  <Link className="footer__nav-link" to="/">{t('qoraqalpoq')}</Link>
                 </li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('toshkent')}</Link>
+                  <Link className="footer__nav-link" to="/">{t('toshkent')}</Link>
                 </li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('andijon')}</Link>
+                  <Link className="footer__nav-link" to="/">{t('andijon')}</Link>
                 </li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('buxora')}</Link>
+                  <Link className="footer__nav-link" to="/">{t('buxora')}</Link>
                 </li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('jizzax')}</Link>
+                  <Link className="footer__nav-link" to="/">{t('jizzax')}</Link>
                 </li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('qashqadaryo')}</Link>
+                  <Link className="footer__nav-link" to="/">{t('qashqadaryo')}</Link>
                 </li>
                 <li className="footer__item">
-                  <Link className="footer__nav-link" to="/">{t ('navoiy')}</Link>
-                </li> 
+                  <Link className="footer__nav-link" to="/">{t('navoiy')}</Link>
+                </li>
               </ul>
             </li>
             <li className="footer__nav-item">
@@ -117,32 +118,35 @@ export default function Footer() {
         </nav>
 
         <div className="footer__box">
-          <p className="footer__us">Contact Us</p>
-          <div className="footer__addressbox">
-            <i className='bx bx-location-plus'></i>
-            <p className="footer__address">Ташкент, тупик Фурката, 69 Оф. 7</p>
+          <div className="footer__ebox">
+
+            <p className="footer__us">Contact Us</p>
+            <div className="footer__addressbox">
+              <i className='bx bx-location-plus'></i>
+              <p className="footer__address">Ташкент, тупик Фурката, 69 Оф. 7</p>
+            </div>
+            <div className="footer__addressbox">
+              <i className='bx bx-envelope'></i>
+              <a className="footer__link" href="mailto: www.effect.uz@gmail.com">www.effect.uz@gmail.com</a>
+            </div>
+            <button className="footer__btn">Subscribe</button>
+            <p className="footer__follow">Follow Us</p>
+            <ul className="footer__slist">
+              <li className="footer__sitem">
+                <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook' ></i></a>
+              </li>
+              <li className="footer__sitem">
+                <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-telegram' ></i></a>
+              </li>
+              <li className="footer__sitem">
+                <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-instagram' ></i></a>
+              </li>
+              <li className="footer__sitem">
+                <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-youtube' ></i></a>
+              </li>
+            </ul>
+            <hr className="foooter__hr" />
           </div>
-          <div className="footer__addressbox">
-            <i className='bx bx-envelope'></i>
-            <a className="footer__link" href="mailto: www.effect.uz@gmail.com">www.effect.uz@gmail.com</a>
-          </div>
-          <button className="footer__btn">Subscribe</button>
-          <p className="footer__follow">Follow Us</p>
-          <ul className="footer__slist">
-            <li className="footer__sitem">
-              <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-facebook' ></i></a>
-            </li>
-            <li className="footer__sitem">
-              <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-telegram' ></i></a>
-            </li>
-            <li className="footer__sitem">
-              <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-instagram' ></i></a>
-            </li>
-            <li className="footer__sitem">
-              <a className="footer__slink" href="/" target="_blank" rel="noopener noreferrer"><i className='bx bxl-youtube' ></i></a>
-            </li>
-          </ul>
-          <hr className="foooter__hr" />
 
           <ul className="footer__plist">
             <li className="footer__pitem">
@@ -151,14 +155,14 @@ export default function Footer() {
               </a>
             </li>
             <li className="footer__pitem">
-            <a href="/" target="_blank">
-              <img className="footer__pimg" src={appStore} alt="App-Store" />
-            </a>
+              <a href="/" target="_blank">
+                <img className="footer__pimg" src={appStore} alt="App-Store" />
+              </a>
             </li>
             <li className="footer__pitem">
-            <a href="/" target="_blank">
-              <img className="footer__pimg" src={windowStore} alt="Window-Store" />
-            </a>
+              <a href="/" target="_blank">
+                <img className="footer__pimg" src={windowStore} alt="Window-Store" />
+              </a>
             </li>
           </ul>
         </div>

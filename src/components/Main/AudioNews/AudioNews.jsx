@@ -1,28 +1,30 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import GET from "../../../API/GET";
+import '../../../i18next'
 
 export default function AudioN() {
 
   const { t, i18n } = useTranslation()
-  const [category, setCategory] = useState([])
+  const [data, setData] = useState([])
+  const [onemp3, setOne_mp3] = useState([])
+  const [audioId, setAudioId] = useState(0)
 
   const newsItem = async () => {
-    try{
-      const response = await GET.voice_one(2);
-      setCategory(response)
-      // setCategory(...response.data.filter(item => item.id == id))
-    }catch(err) {
+    try {
+      const allmp3 = await GET.voices();
+      setData(allmp3.data.items)
+      const response = await GET.voice_one(allmp3.data.items.length);
+      setOne_mp3(response.data)
+    } catch (err) {
       console.log(err)
       return
     }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     newsItem()
-  },[])
-
-  console.log(category)
+  }, [])
 
 
   // Plyer uchun
@@ -44,7 +46,7 @@ export default function AudioN() {
 
   const dragHandler = (e) => {
     audioRef.current.currentTime = e.target.value
-    setTime({...time, current: e.target.value})
+    setTime({ ...time, current: e.target.value })
   }
 
   const volumeHandler = (e) => {
@@ -60,16 +62,63 @@ export default function AudioN() {
     setPlaying(!playing)
   }
 
+
+  const oneItem = async (id, key) => {
+    try {
+      setAudioId(key)
+      const response = await GET.voice_one(id);
+      setOne_mp3(response.data)
+      setTimeout(() => {
+        audioRef.current.play()
+        setPlaying(true)
+      }, [1000])
+
+    } catch (err) {
+      console.log(err)
+      return
+    }
+  }
+
+  const prevHandler = async () => {
+    try {
+      const response = await GET.voice_one(data[audioId - 1].id);
+      setOne_mp3(response.data)
+      setTimeout(() => {
+        audioRef.current.play()
+        setPlaying(true)
+      }, [1000])
+      setAudioId(audioId - 1)
+    } catch (err) {
+      console.log(err)
+      return
+    }
+  }
+
+  const nextHandler = async () => {
+    try {
+      const response = await GET.voice_one(data[audioId + 1].id);
+      setOne_mp3(response.data)
+      setTimeout(() => {
+        audioRef.current.play()
+        setPlaying(true)
+      }, [1000])
+      setAudioId(audioId + 1)
+    } catch (err) {
+      console.log(err)
+      return
+    }
+  }
+
   return (
     <section className="audionews">
-      <h2 className="audionews__title">Audio Xabarlar</h2>
+      <h2 className="audionews__title">{t("Audio-xabar")}</h2>
 
       <div className="audionews__bigbox">
-        <h3 className="audionews__name">Leak: Samsung to announce the Z Fold 3 and Galaxy Watch 4 in August</h3>
+        <h3 className="audionews__name">{i18n.language === "uz" ? onemp3.title_uz : i18n.language === "ru" ? onemp3.title_ru : i18n.language === "kiril" ? onemp3.title_oz : onemp3.title_uz}</h3>
         <div className="audionews__box">
-          <button className="audionews__btn"><i className='bx bx-chevron-left'></i></button>
+          <button onClick={prevHandler} disabled={audioId === 0 ? true : ""} className="audionews__btn"><i className='bx bx-chevron-left'></i></button>
           <button onClick={play} className="audionews__playbtn"> {!playing ? <i className='bx bx-play'></i> : <i className='bx bx-pause'></i>}</button>
-          <button className="audionews__btn"><i className='bx bx-chevron-right'></i></button>
+          <button onClick={nextHandler} disabled={data.length -1 === audioId ? true : ""} className="audionews__btn"><i className='bx bx-chevron-right'></i></button>
           <span className="audionews__time">{getTime(time.current)} / {getTime(time.duration)}</span>
 
           <input
@@ -80,32 +129,39 @@ export default function AudioN() {
             max={+time.duration}
           />
 
-          <input className="audionews__volume" type="range" onChange={volumeHandler} />
+          <input className="audionews__volume" defaultValue={100} type="range" onChange={volumeHandler} />
           <audio
             onTimeUpdate={timeHandler}
             onLoadedMetadata={timeHandler}
+            src={onemp3.voice}
             ref={audioRef}
-            src="https://voydod.net/uploads/files/uzmusic2/Benom_Guruhi_-_Adashdimmi.mp3"
-
           >
-
           </audio>
         </div>
       </div>
 
       <ul className="audionews__list">
-        <li className="audionews__item">
-          <div className="audionews__imgbox">
-            <img className="audionews__img" src="https://picsum.photos/id/13/79" alt="img" />
-          </div>
-          <div className="audionews__right">
-            <h3 className="audionews__subtitle">Another audio news title. Box shadow farq qiladi</h3>
-            <div className="audionews__flex">
-              <span className="audionews__date"><i className='bx bxs-calendar-event bx-flip-horizontal'></i> 13.05.2022</span>
-              <span className="audionews__category">Texno</span>
-            </div>
-          </div>
-        </li>
+        {
+          data.map((item, key) => {
+            return (
+              <li typeof="button" onClick={() => oneItem(item.id, key)} key={key + 549} className={`audionews__item ${onemp3.id === item.id ? "audionews__active" : ''}`}>
+                <div className="audionews__imgbox">
+                  <img className="audionews__img" src={item.img} alt="img" />
+                </div>
+                <div className="audionews__right">
+                  <h3 className="audionews__subtitle">{i18n.language === "uz" ? item.title_uz : i18n.language === "ru" ? item.title_ru : i18n.language === "kiril" ? item.title_oz : item.title_uz}</h3>
+                  <div className="audionews__flex">
+                    <span className="audionews__date"><i className='bx bxs-calendar-event bx-flip-horizontal'></i> {item.created_date}</span>
+                    <span className="audionews__onemp3">{item.onemp3_id}</span>
+                  </div>
+                </div>
+              </li>
+            )
+          })
+        }
+      <div className="text-center">
+        <button className="newslenta__btn">Yana yuklash</button>
+      </div>
       </ul>
     </section>
   )

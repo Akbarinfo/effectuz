@@ -22,8 +22,6 @@ export default function InformerItem() {
     infoUser()
   }, [])
 
-  console.log(data)
-
   return(
     <section className="informer">
       <div className="informer__left">

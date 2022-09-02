@@ -9,10 +9,11 @@ import TopNews from "./TopNews";
 import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Aside from "../Aside";
-import FotoNews from "./FotoNews";
 import VideoNews from "../VideoNews";
 import Banner from "../Banner";
 import Footer from "../Footer";
+import MobileVideo from "../Mobile/Main/VideoNews";
+
 
 export default function Main() {
   return (
@@ -25,6 +26,7 @@ export default function Main() {
             <div className="main__box">
               <Navbar />
               <News />
+              <MobileVideo />
               <MainAside />
               <TopNews />
             </div>

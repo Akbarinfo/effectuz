@@ -38,7 +38,7 @@
 
     &:hover {
       background-color: #2f9ff8;
-    border: 0.2px solid #2f9ff8;
+      border: 0.2px solid #2f9ff8;
       color: #fff;
     }
   }
@@ -80,4 +80,11 @@
 
 .fPimMH {
   width: 771px;
+}
+
+
+@media screen and (max-width: 576px) {
+  .nav {
+    display: none;
+  }
 }

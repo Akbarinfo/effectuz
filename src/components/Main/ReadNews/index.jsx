@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Aside from "../../Aside";
-import Banner from "../../Banner";
 import Footer from "../../Footer";
 import Header from "../../Header";
 import Sidebar from "../../Sidebar";
 import ReadN from "./ReadNews";
+import RealtedNews from "./RealtedNews";
 
 //style
 import './readnews.scss'
-import RealtedNews from "./RealtedNews";
 
 
 export default function ReadNews() {

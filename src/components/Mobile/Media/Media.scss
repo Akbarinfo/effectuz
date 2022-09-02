@@ -1,0 +1,50 @@
+.media {
+  padding: 55px 10px 33px 10px;
+
+  &__title {
+    font-family: 'Bluu Next';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #072d4b;
+    margin-bottom: 12px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 40px;
+    padding: 5px;
+  }
+
+  &__link {
+    border: 0.2px solid transparent;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #072d4b;
+    transition: all 0.4s ease;
+    padding: 6px 17px;
+    margin-right: 10px;
+
+    &:hover {
+      background-color: #2f9ff8;
+      border: 0.2px solid #2f9ff8;
+      color: #fff;
+    }
+  }
+
+  &__active {
+    background-color: #2f9ff8;
+    border: 0.2px solid #2f9ff8;
+    color: #fff;
+  }
+
+  &__item {
+
+  }
+
+}
