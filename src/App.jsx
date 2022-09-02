@@ -38,7 +38,6 @@ function App() {
       </Routes>
       <ScrollTop />
       <MobileSidebar />
-      //test
     </>
   )
 }
